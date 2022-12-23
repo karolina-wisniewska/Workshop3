@@ -59,20 +59,18 @@
                             <form action="/workshop/user/add" method="post">
                                 <div class="form-group">
                                     Nazwa
-                                    <input type="text" class="form-control form-control-user"
-                                           name="name" aria-describedby="nameHelp"
-                                           placeholder="Nazwa użytkownika">
+                                    <input value="${user.userName}" type="text" class="form-control form-control-user"
+                                           name="name" aria-describedby="nameHelp"/>
                                 </div>
                                 <div class="form-group">
                                     Email
-                                    <input type="email" class="form-control form-control-user"
-                                           name="email" aria-describedby="emailHelp"
-                                           placeholder="Email użytkownika">
+                                    <input value="${user.email}" type="email" class="form-control form-control-user"
+                                           name="email" aria-describedby="emailHelp"/>
                                 </div>
                                 <div class="form-group">
                                     Hasło
                                     <input type="password" class="form-control form-control-user"
-                                           name="password" placeholder="Hasło użytkownika">
+                                           name="password" placeholder="Hasło użytkownika"/>
                                 </div>
 
                                 <div>
