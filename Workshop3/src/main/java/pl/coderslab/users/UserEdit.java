@@ -10,6 +10,11 @@ import java.io.IOException;
 @WebServlet(urlPatterns = "/user/edit")
 public class UserEdit extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String id = request.getParameter("id");
+        UserDAO userDao = new UserDAO();
+        User read = userDao.read(Integer.parseInt(id));
+        request.setAttribute("user", read);
+
         getServletContext().getRequestDispatcher("/users/edit.jsp")
                 .forward(request, response);
     }
