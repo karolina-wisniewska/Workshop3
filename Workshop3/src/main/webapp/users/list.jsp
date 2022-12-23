@@ -1,7 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java"%>
 
-<html lang="en">
+<html lang="pl">
 
 <head>
 
@@ -73,7 +73,11 @@
                                                     <td>${user.id}</td>
                                                     <td>${user.userName}</td>
                                                     <td>${user.email}</td>
-                                                    <td></td>
+                                                    <td>
+                                                        <a href="<c:url value="/users/add.jsp"/>">Usuń</a>
+                                                        <a href="<c:url value="/users/add.jsp"/>">Edit</a>
+                                                        <a href="<c:url value="/users/add.jsp"/>">Pokaż</a>
+                                                    </td>
                                                 </tr>
                                             </c:forEach>
 
