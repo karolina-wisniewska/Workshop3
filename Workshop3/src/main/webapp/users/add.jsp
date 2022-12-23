@@ -1,5 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java"%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <html lang="pl">
 
@@ -46,44 +46,40 @@
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
                         <h1 class="h3 mb-0 text-gray-800">UsersCRUD</h1>
-                        <a href="<c:url value="/users/add.jsp"/>" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+                        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
                                 class="fas fa-download fa-sm text-white-50"></i> Dodaj użytkownika</a>
                     </div>
 
                     <!-- Basic Card Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Lista użytkowników</h6>
+                            <h6 class="m-0 font-weight-bold text-primary">Dodaj użytkownika</h6>
                         </div>
                         <div class="card-body">
+                            <form action="/workshop/user/add" method="post">
+                                <div class="form-group">
+                                    Nazwa
+                                    <input type="text" class="form-control form-control-user"
+                                           name="name" aria-describedby="nameHelp"
+                                           placeholder="Nazwa użytkownika">
+                                </div>
+                                <div class="form-group">
+                                    Email
+                                    <input type="email" class="form-control form-control-user"
+                                           name="email" aria-describedby="emailHelp"
+                                           placeholder="Email użytkownika">
+                                </div>
+                                <div class="form-group">
+                                    Hasło
+                                    <input type="password" class="form-control form-control-user"
+                                           name="password" placeholder="Hasło użytkownika">
+                                </div>
 
-                                        <table class="table" id="dataTable" width="100%" cellspacing="0">
-                                            <thead>
-                                            <tr>
-                                                <th>Id</th>
-                                                <th>Nazwa użytkownika</th>
-                                                <th>Email</th>
-                                                <th>Akcja</th>
-                                            </tr>
-                                            </thead>
+                                <div>
+                                    <button type="submit" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">Zapisz</button>
+                                </div>
 
-                                            <tbody>
-                                            <c:forEach var="user" items="${users}" >
-                                                <tr>
-                                                    <td>${user.id}</td>
-                                                    <td>${user.userName}</td>
-                                                    <td>${user.email}</td>
-                                                    <td>
-                                                        <a href="<c:url value="/users/add.jsp"/>">Usuń</a>
-                                                        <a href="<c:url value="/users/add.jsp"/>">Edit</a>
-                                                        <a href="<c:url value="/users/add.jsp"/>">Pokaż</a>
-                                                    </td>
-                                                </tr>
-                                            </c:forEach>
-
-                                            </tbody>
-                                        </table>
-
+                            </form>
                         </div>
                     </div>
 
