@@ -74,9 +74,9 @@
                                                     <td>${user.userName}</td>
                                                     <td>${user.email}</td>
                                                     <td>
-                                                        <a href="<c:url value="/users/add.jsp"/>">Usuń</a>
-                                                        <a href="<c:url value="/users/add.jsp"/>">Edit</a>
-                                                        <a href="<c:url value="/users/add.jsp"/>">Pokaż</a>
+                                                        <a href="<c:url value="/user/add"/>">Usuń</a>
+                                                        <a href="<c:url value="/user/edit"/>">Edit</a>
+                                                        <a href="<c:url value="/user/show"/>">Pokaż</a>
                                                     </td>
                                                 </tr>
                                             </c:forEach>
