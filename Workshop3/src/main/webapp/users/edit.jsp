@@ -56,7 +56,7 @@
                             <h6 class="m-0 font-weight-bold text-primary">Edycja użytkownika</h6>
                         </div>
                         <div class="card-body">
-                            <form action="/workshop/user/add" method="post">
+                            <form action="/workshop/user/edit" method="post">
                                 <div class="form-group">
                                     Nazwa
                                     <input value="${user.userName}" type="text" class="form-control form-control-user"
