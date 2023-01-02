@@ -24,6 +24,6 @@ public class UserAdd extends HttpServlet {
 
         UserDAO userDao = new UserDAO();
         userDao.create(userToAdd);
-        resp.sendRedirect("/workshop/user/list");
+        resp.sendRedirect(req.getContextPath() + "/user/list");
     }
 }

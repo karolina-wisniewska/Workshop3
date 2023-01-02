@@ -38,6 +38,6 @@ public class UserEdit extends HttpServlet {
 
         UserDAO userDao = new UserDAO();
         userDao.update(userToEdit);
-        resp.sendRedirect("/workshop/user/list");
+        resp.sendRedirect(req.getContextPath() + "/user/list");
     }
 }
