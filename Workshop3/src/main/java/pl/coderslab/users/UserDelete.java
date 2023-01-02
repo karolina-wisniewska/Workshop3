@@ -14,11 +14,6 @@ public class UserDelete extends HttpServlet {
         String id = request.getParameter("id");
         UserDAO userDao = new UserDAO();
         userDao.delete(Integer.parseInt(id));
-
-        request.setAttribute("users", userDao.findAll());
-
-
-        getServletContext().getRequestDispatcher("/users/list.jsp")
-                .forward(request, response);
+        response.sendRedirect(request.getContextPath() + "/user/list");
     }
 }
