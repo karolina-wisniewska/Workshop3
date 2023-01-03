@@ -1,7 +1,5 @@
 package pl.coderslab.users;
 
-import com.mysql.cj.Session;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -19,7 +17,7 @@ public class UserEdit extends HttpServlet {
 //        request.setAttribute("user", read);
 
         HttpSession session = request.getSession();;
-        session.setAttribute("user",read);
+        session.setAttribute("user", read);
 
         getServletContext().getRequestDispatcher("/users/edit.jsp")
                 .forward(request, response);
