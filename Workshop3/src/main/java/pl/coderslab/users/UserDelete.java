@@ -10,9 +10,10 @@ import java.io.IOException;
 
 @WebServlet(urlPatterns = "/user/delete")
 public class UserDelete extends HttpServlet {
+    private final UserDAO userDao = new UserDAO();
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String id = request.getParameter("id");
-        UserDAO userDao = new UserDAO();
+
         userDao.delete(Integer.parseInt(id));
         response.sendRedirect(request.getContextPath() + "/user/list");
     }

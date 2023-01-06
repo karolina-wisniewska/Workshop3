@@ -22,6 +22,7 @@
         <div class="card-body">
             <form action="/workshop/user/edit" method="post">
                 <div class="form-group">
+                    <input type="hidden" value="${user.id}" name="id"/>
                     Nazwa
                     <input value="${user.userName}" type="text" class="form-control form-control-user"
                            name="name" aria-describedby="nameHelp"/>

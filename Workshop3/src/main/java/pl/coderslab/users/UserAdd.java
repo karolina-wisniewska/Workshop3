@@ -9,6 +9,7 @@ import java.io.IOException;
 
 @WebServlet(urlPatterns = "/user/add")
 public class UserAdd extends HttpServlet {
+    private final UserDAO userDao = new UserDAO();
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         getServletContext().getRequestDispatcher("/users/add.jsp")
                 .forward(request, response);
@@ -16,13 +17,11 @@ public class UserAdd extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
         User userToAdd = new User();
         userToAdd.setUserName(req.getParameter("name"));
         userToAdd.setEmail(req.getParameter("email"));
         userToAdd.setPassword(req.getParameter("password"));
 
-        UserDAO userDao = new UserDAO();
         userDao.create(userToAdd);
         resp.sendRedirect(req.getContextPath() + "/user/list");
     }
