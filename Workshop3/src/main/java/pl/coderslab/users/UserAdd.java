@@ -10,6 +10,8 @@ import java.io.IOException;
 @WebServlet(urlPatterns = "/user/add")
 public class UserAdd extends HttpServlet {
     private final UserDAO userDao = new UserDAO();
+
+
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         getServletContext().getRequestDispatcher("/users/add.jsp")
                 .forward(request, response);
