@@ -17,40 +17,29 @@
     <!-- Basic Card Example -->
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Lista użytkowników</h6>
+            <h6 class="m-0 font-weight-bold text-primary">Szczegóły użytkownika</h6>
         </div>
         <div class="card-body">
 
             <table class="table" id="dataTable" width="100%" cellspacing="0">
-                <thead>
                 <tr>
                     <th>Id</th>
-                    <th>Nazwa użytkownika</th>
-                    <th>Email</th>
-                    <th>Akcja</th>
+                    <td>${user.id}</td>
                 </tr>
-                </thead>
 
-                <tbody>
-                <c:forEach var="user" items="${users}" >
-                    <tr>
-                        <td>${user.id}</td>
-                        <td>${user.userName}</td>
-                        <td>${user.email}</td>
-                        <td>
-                            <a href="<c:url value="/user/delete?id=${user.id}"/>">Usuń</a>
-                            <a href="<c:url value="/user/edit?id=${user.id}"/>">Edit</a>
-                            <a href="<c:url value="/user/show?id=${user.id}"/>">Pokaż</a>
-                        </td>
-                    </tr>
-                </c:forEach>
+                <tr>
+                    <th>Nazwa użytkownika</th>
+                    <td>${user.userName}</td>
+                </tr>
 
-                </tbody>
+                <tr>
+                    <th>Email</th>
+                    <td>${user.email}</td>
+                </tr>
             </table>
 
         </div>
     </div>
-
 </div>
 <!-- /.container-fluid -->
 

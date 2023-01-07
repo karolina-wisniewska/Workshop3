@@ -1,7 +1,5 @@
 package pl.coderslab.users;
 
-import com.mysql.cj.Session;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -12,14 +10,11 @@ import java.io.IOException;
 
 @WebServlet(urlPatterns = "/user/edit")
 public class UserEdit extends HttpServlet {
+    private final UserDAO userDao = new UserDAO();
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String id = request.getParameter("id");
-        UserDAO userDao = new UserDAO();
         User read = userDao.read(Integer.parseInt(id));
-//        request.setAttribute("user", read);
-
-        HttpSession session = request.getSession();;
-        session.setAttribute("user",read);
+        request.setAttribute("user", read);
 
         getServletContext().getRequestDispatcher("/users/edit.jsp")
                 .forward(request, response);
@@ -28,16 +23,13 @@ public class UserEdit extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        HttpSession session = req.getSession();
-
-        User userToEdit = (User) session.getAttribute("user");
-
+        String id = req.getParameter("id");
+        User userToEdit = userDao.read(Integer.parseInt(id));
         userToEdit.setUserName(req.getParameter("name"));
         userToEdit.setEmail(req.getParameter("email"));
         userToEdit.setPassword(req.getParameter("password"));
 
-        UserDAO userDao = new UserDAO();
         userDao.update(userToEdit);
-        resp.sendRedirect("/workshop/user/list");
+        resp.sendRedirect(req.getContextPath() + "/user/list");
     }
 }

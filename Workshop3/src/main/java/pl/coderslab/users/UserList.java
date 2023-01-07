@@ -13,9 +13,11 @@ import java.sql.SQLException;
 
 @WebServlet(urlPatterns = "/user/list")
 public class UserList extends HttpServlet {
+
+    private final UserDAO userDao = new UserDAO();
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-            UserDAO userDao = new UserDAO();
-            request.setAttribute("users", userDao.findAll());
+
+        request.setAttribute("users", userDao.findAll());
 
         getServletContext().getRequestDispatcher("/users/list.jsp")
                 .forward(request, response);
