@@ -16,4 +16,4 @@ _site/
 *.logs
 .idea/
 .eclipse
- src/main/webapp/theme
+ src/main/webapp/theme/*
